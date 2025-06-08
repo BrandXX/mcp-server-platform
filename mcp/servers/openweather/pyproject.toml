@@ -1,0 +1,45 @@
+[project]
+name = "openweather-mcp-server"
+version = "0.2.0"
+description = "OpenWeather API MCP server providing current conditions and 5-day forecasts"
+authors = [
+    {name = "MCPO", email = "user@example.com"}
+]
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.10"
+keywords = ["mcp", "weather", "openweather", "forecast"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+dependencies = [
+    "httpx>=0.25.0",
+    "fastmcp>=2.0.0"
+]
+
+[project.urls]
+Homepage = "https://github.com/your-org/mcp-servers"
+Repository = "https://github.com/your-org/mcp-servers"
+Documentation = "https://github.com/your-org/mcp-servers/tree/main/mcp/servers/openweather"
+
+[tool.uv]
+dev-dependencies = [
+    "pytest>=7.0.0",
+    "pytest-asyncio>=0.21.0"
+]
+
+[tool.mcp-server]
+# Custom metadata for MCP server management
+title = "OpenWeather Forecast"
+category = "weather"
+tags = ["weather", "forecast", "api"]
+env_vars = [
+    {name = "OPENWEATHER_API_KEY", required = true, description = "OpenWeatherMap API key"},
+    {name = "UNITS", required = false, default = "imperial", description = "Temperature units (imperial/metric)"}
+]

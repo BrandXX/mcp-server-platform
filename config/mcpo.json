@@ -1,0 +1,29 @@
+{
+  "mcpServers": {
+    "time": {
+      "title": "MCP Current Time",
+      "description": "Current date & time for any city or timezone.",
+      "command": "uvx",
+      "args": ["mcp-server-time", "--local-timezone=America/Phoenix"],
+      "preload": true
+    },
+    "memory": {
+      "title": "MCP Ephemeral Memory",
+      "description": "Simple key-value store: read or write short-term notes that live only for this session.",
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-memory"]
+    },
+
+    "openweather": {
+      "title": "OpenWeather Forecast",
+      "description": "Current conditions and 5-day forecast via OpenWeatherMap API.",
+      "command": "bash",
+      "args": ["/mcp/servers/openweather/run_uv.sh"],
+      "preload": true,
+      "env": {
+        "OPENWEATHER_API_KEY": "46ce559b664c868757954c0e1709f95a",
+        "UNITS": "imperial"
+      }
+    }
+  }
+}

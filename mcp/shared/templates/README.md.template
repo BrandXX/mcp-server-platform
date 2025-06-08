@@ -1,0 +1,45 @@
+# {{title}} MCP Server
+
+{{description}}
+
+## Features
+
+{{features}}
+
+## Tools
+
+{{tools_documentation}}
+
+## Configuration
+
+### Environment Variables
+
+{{env_vars_documentation}}
+
+## Installation
+
+This server uses UV for dependency management:
+
+```bash
+# Install dependencies
+uv sync
+
+# Run the server
+uv run python {{server_name}}.py
+```
+
+## Usage Examples
+
+{{usage_examples}}
+
+## Dependencies
+
+{{dependencies_list}}
+
+## Version
+
+Current version: {{version}}
+
+## License
+
+MIT License

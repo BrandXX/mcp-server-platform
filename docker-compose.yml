@@ -1,0 +1,41 @@
+# This compose has been added to the AI-Stack docker-compose.yml in '/home/userx' and does not need to be launched from here
+# To launch the MCPO server, goto '/home/userx' and run 'docker compose --profile gpu-nvidia up -d mcpo'
+
+services:
+  mcpo:
+    image: ghcr.io/open-webui/mcpo:main
+    container_name: mcpo
+    entrypoint: ["/scripts/install_deps.sh"]
+    command:
+      - "--config"
+      - "/config/mcpo.json"
+      - "--port"
+      - "8000"
+    volumes:
+      # - ./config/mcpo.json:/config/mcpo.json:ro
+      - ./config:/config:ro
+      - ./data:/memory
+      - ./scripts:/scripts:ro
+      - ./mcp:/mcp:ro
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
+      - ${HOME}/host:/home/userx/host:rw
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    ports:
+      - "8989:8000"
+    networks:
+      - userx_ai-network
+    restart: unless-stopped
+    healthcheck:
+      test: >
+        curl --fail --silent --max-time 5 http://localhost:8000/time ||
+        exit 1
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 15s
+
+networks:
+  userx_ai-network:
+    external: true

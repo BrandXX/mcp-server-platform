@@ -1,0 +1,155 @@
+# MCP Server Development Platform - .gitignore
+
+# ============================================================================
+# SECURITY: Prevent sensitive data leaks
+# ============================================================================
+
+# Environment files with secrets
+.env
+.env.local
+.env.production
+.env.staging
+*.env
+
+# API keys and secrets
+**/api_keys.txt
+**/secrets.txt
+**/*secret*
+**/*key*
+**/*token*
+**/*password*
+
+# Configuration files that might contain secrets
+config/local.json
+config/production.json
+config/secrets.json
+
+# ============================================================================
+# DOCKER & RUNTIME DATA: Prevent data mount leaks
+# ============================================================================
+
+# Docker runtime data (contains working files, cache, logs)
+data/
+!data/.gitkeep
+
+# Docker volumes and mounts
+volumes/
+mounts/
+
+# Container logs and runtime files
+*.log
+logs/
+docker-compose.override.yml
+
+# ============================================================================
+# PYTHON & UV: Standard Python ignores
+# ============================================================================
+
+# Python cache files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+
+# UV and virtual environments
+.venv/
+venv/
+env/
+ENV/
+.uv-cache/
+
+# UV lock files (include these for reproducibility)
+# uv.lock
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# ============================================================================
+# DEVELOPMENT: IDE and development files
+# ============================================================================
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# ============================================================================
+# BACKUP & TEMPORARY: Prevent clutter
+# ============================================================================
+
+# Backup files
+*-BAK*
+*-BACKUP*
+*.bak
+*.backup
+*.orig
+*.save
+
+# Temporary files
+*.tmp
+*.temp
+temp/
+tmp/
+.tmp/
+
+# Test artifacts (keep test files in tests/ directory)
+test_output/
+test_results/
+coverage/
+.coverage
+.pytest_cache/
+.tox/
+
+# ============================================================================
+# PROJECT SPECIFIC: MCP server development
+# ============================================================================
+
+# Development server working directories (these are in data/ anyway)
+mcp-servers/
+.mcp-cache/
+
+# Local development overrides
+docker-compose.local.yml
+mcpo.local.json
+
+# Documentation builds
+docs/_build/
+docs/.doctrees/
+
+# ============================================================================
+# KEEP THESE: Important files to include in repository
+# ============================================================================
+
+# Keep these files (override above patterns if needed):
+# !tests/test_*.py          # Test files should be included
+# !docs/                    # Documentation should be included
+# !mcp/servers/*/           # Server source code should be included
+# !config/mcpo.json         # Main configuration should be included

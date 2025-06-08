@@ -1,0 +1,22 @@
+{
+  "mcpServers": {
+    "toolname": {
+      "title": "Readable name",
+      "description": "One-liner for humans",
+      "url": "https://provider.com/mcp",       // fully-qualified URL
+      "server_type": "http",                   // "http" or "streamable_http"
+      "headers": { "Authorization": "Bearer …" },  // optional
+      "preload": false
+    }
+  }
+}
+
+-----------------------------
+
+"mathguru": {
+  "title": "Math Guru",
+  "description": "Solve algebra and calculus problems.",
+  "url": "https://mathguru.ai/mcp",     // remote MCP server
+  "server_type": "http",                // or "streamable_http" if advertised
+  "preload": false                      // MCPO just proxies; nothing to preload
+}
