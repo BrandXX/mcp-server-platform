@@ -86,6 +86,8 @@ python tests/test_openweather.py
 - **[Server Creation](docs/SERVER_CREATION.md)**: Step-by-step server development
 - **[Testing Guide](tests/README.md)**: Testing framework and utilities
 - **[Architecture](docs/ARCHITECTURE.md)**: System design and components
+- **[Project Roadmap](docs/ROADMAP.md)**: Future enhancements and development plans
+- **[Security Guide](docs/SECURITY.md)**: Security best practices and API key management
 
 ## 🧪 Testing
 

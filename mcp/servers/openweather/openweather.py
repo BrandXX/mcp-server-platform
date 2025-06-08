@@ -3,6 +3,10 @@ OpenWeather Forecast Tool
 
 Provides current weather and extended forecast using the OpenWeatherMap API.
 Uses UV for dependency management with pyproject.toml.
+
+Version: 0.2.0
+Author: MCPO Platform
+License: MIT
 """
 
 from mcp.server.fastmcp import FastMCP
@@ -12,10 +16,15 @@ import httpx
 from datetime import datetime
 from typing import Optional
 
+# Version information
+__version__ = "0.2.0"
+__author__ = "MCPO Platform"
+__license__ = "MIT"
+
 app = FastMCP(
     title="OpenWeather Forecast",
     description="Current conditions and extended forecast via OpenWeatherMap API",
-    version="0.2.0",
+    version=__version__,
 )
 
 # Get API key from environment variable
@@ -206,6 +215,11 @@ def check_openweather_status() -> str:
     status_lines.append("OpenWeather Tool Status:")
     status_lines.append("=" * 30)
 
+    # Version information
+    status_lines.append(f"📦 Version: {__version__}")
+    status_lines.append(f"👤 Author: {__author__}")
+    status_lines.append(f"📄 License: {__license__}")
+
     # Check API key
     if API_KEY:
         status_lines.append("✅ API Key: Configured")
@@ -215,7 +229,7 @@ def check_openweather_status() -> str:
     # Check HTTP client availability
     try:
         import httpx
-        status_lines.append("✅ HTTP client: httpx available")
+        status_lines.append(f"✅ HTTP client: httpx {httpx.__version__} available")
     except ImportError:
         status_lines.append("❌ HTTP client: httpx not available")
 
@@ -226,6 +240,25 @@ def check_openweather_status() -> str:
     status_lines.append("✅ Dependencies: Managed by UV")
 
     return "\n".join(status_lines)
+
+@app.tool()
+def get_openweather_version() -> str:
+    """Get version information for the OpenWeather MCP server."""
+    return f"""
+OpenWeather MCP Server
+Version: {__version__}
+Author: {__author__}
+License: {__license__}
+
+Features:
+• Current weather conditions
+• 5-day weather forecasts
+• Multiple unit systems (imperial/metric)
+• Comprehensive error handling
+• UV-based dependency management
+
+Last updated: 2024-12-08
+    """.strip()
 
 if __name__ == "__main__":
     app.run()

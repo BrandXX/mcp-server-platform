@@ -10,6 +10,7 @@ Welcome to the MCP Server Development Platform documentation! This comprehensive
 - **[SERVER_CREATION.md](SERVER_CREATION.md)**: Step-by-step server creation tutorial
 
 ### 📋 Standards & Specifications
+- **[STRUCTURE.md](STRUCTURE.md)**: Complete project structure and organization guide
 - **[MCP_STANDARDS.md](MCP_STANDARDS.md)**: MCP protocol standards and best practices
 - **[ARCHITECTURE.md](ARCHITECTURE.md)**: System design and component overview
 - **[AI_DEVELOPMENT_GUIDE.md](AI_DEVELOPMENT_GUIDE.md)**: Guide for AI-assisted development
@@ -17,6 +18,12 @@ Welcome to the MCP Server Development Platform documentation! This comprehensive
 ### 🧪 Testing & Quality
 - **[Testing Guide](../tests/README.md)**: Comprehensive testing framework
 - **[Contributing Guide](../CONTRIBUTING.md)**: Contribution guidelines and standards
+
+### 🗺️ Project Planning
+- **[ROADMAP.md](ROADMAP.md)**: Comprehensive project roadmap and future enhancements
+- **[CLI_TOOL_SUMMARY.md](CLI_TOOL_SUMMARY.md)**: Quick reference for the planned CLI tool
+- **[OPEN_WEBUI_INTEGRATION.md](OPEN_WEBUI_INTEGRATION.md)**: Open-WebUI integration enhancement summary
+- **[SECURITY.md](SECURITY.md)**: Security best practices and API key management
 
 ### 📖 Legacy Documentation
 - **[tools.md](tools.md)**: Available MCP servers (updated)
