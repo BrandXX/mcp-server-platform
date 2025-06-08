@@ -21,7 +21,6 @@
       "args": ["/mcp/servers/openweather/run_uv.sh"],
       "preload": true,
       "env": {
-        "OPENWEATHER_API_KEY": "46ce559b664c868757954c0e1709f95a",
         "UNITS": "imperial"
       }
     }
