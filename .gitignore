@@ -144,6 +144,9 @@ mcpo.local.json
 docs/_build/
 docs/.doctrees/
 
+# MCP Projects Directory (development workspace)
+_mcp-projects/
+
 # ============================================================================
 # KEEP THESE: Important files to include in repository
 # ============================================================================
