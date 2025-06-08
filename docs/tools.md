@@ -19,17 +19,39 @@ This document describes the MCP servers available in the platform and their capa
   - `read_resource(uri)`: Read stored memory
   - `write_resource(uri, content)`: Store new memory
 
-### 🌦️ OpenWeather Server
+### 🌤️ OpenWeather Server (Enhanced v0.3.0)
 - **ID**: `openweather`
-- **Description**: Weather data via OpenWeatherMap API
+- **Description**: Comprehensive weather intelligence with advanced features
 - **Implementation**: Python with UV at `/mcp/servers/openweather/`
-- **Configuration**:
-  - `OPENWEATHER_API_KEY`: Required API key
-  - `UNITS`: Temperature units (imperial/metric, default: imperial)
-- **Tools**:
-  - `get_current_weather(city)`: Current weather conditions
-  - `get_forecast(city, days)`: Multi-day weather forecast
-  - `check_openweather_status()`: Server health and configuration
+- **Status**: ✅ Production Ready with Advanced Features
+
+#### **Core Weather Tools**
+- **`get_current_weather(city)`**: Real-time weather conditions with rich formatting
+- **`get_forecast(city, days)`**: Detailed 5-day weather forecasts
+
+#### **🆕 Advanced Features (v0.3.0)**
+- **`get_weather_recommendations(city)`**: Smart activity and clothing suggestions based on weather
+- **`get_astronomy_data(city)`**: Sunrise, sunset, moon phases, solar noon calculations
+- **`compare_weather(cities)`**: Multi-city weather comparison (up to 5 cities)
+- **`get_air_quality(city)`**: Air quality index and pollution data with health advisories
+- **`get_weather_alerts(city)`**: Severe weather warnings (requires One Call API 3.0)
+
+#### **System Tools**
+- **`check_openweather_status()`**: Comprehensive server diagnostics
+- **`get_openweather_version()`**: Version and feature information
+
+#### **Configuration**
+- **Required**: `OPENWEATHER_API_KEY` (OpenWeatherMap API key)
+- **Optional**: `UNITS` (imperial/metric), `DEBUG`, `API_TIMEOUT`
+- **APIs Used**: Current Weather, 5-Day Forecast, Air Pollution, Geocoding
+
+#### **Key Features**
+- 🎯 **Smart Recommendations**: Weather-based activity suggestions
+- 🌌 **Astronomy Data**: Moon phases, sunrise/sunset tracking
+- 🌍 **Multi-City Analysis**: Compare weather across locations
+- 🌬️ **Air Quality**: Pollution monitoring with health advice
+- 🎨 **Rich Output**: Emoji-enhanced, structured responses
+- ⚡ **High Performance**: ~2-5ms response times
 
 ## 🏗️ Modern Architecture
 

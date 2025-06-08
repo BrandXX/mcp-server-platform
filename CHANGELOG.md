@@ -14,6 +14,42 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - CI/CD pipeline with GitHub Actions
 - Visual server builder and template marketplace
 
+## [0.3.0] - 2024-12-08
+
+### 🌟 Major OpenWeather Server Enhancement
+
+#### Added
+- **🎯 Weather-Based Activity Recommendations**: Smart suggestions for activities and clothing based on current weather conditions
+- **🌌 Detailed Astronomy Data**: Sunrise, sunset, moon phases, solar noon calculations, and day/night tracking
+- **🌍 Multi-City Weather Comparison**: Compare weather across up to 5 cities simultaneously with highlights
+- **🌬️ Air Quality Index**: Comprehensive pollution data with health recommendations and safety advisories
+- **⚠️ Weather Alerts Framework**: Infrastructure for severe weather warnings (requires One Call API 3.0)
+- **📦 Enhanced Version Management**: Comprehensive version tracking and feature documentation
+
+#### Enhanced
+- **🎨 Rich Output Formatting**: Emoji-enhanced, structured responses for better readability
+- **🧠 Smart Recommendations**: Context-aware suggestions based on multiple weather factors
+- **🏥 Health & Safety Focus**: Warnings and recommendations for extreme weather conditions
+- **📊 Performance Optimization**: Efficient API calls and improved data processing
+
+#### Technical Improvements
+- **Version Upgrade**: OpenWeather server v0.2.0 → v0.3.0
+- **Enhanced Error Handling**: More robust error management with user-friendly messages
+- **Expanded API Coverage**: Integration with multiple OpenWeatherMap APIs
+- **Type Safety**: Added comprehensive type hints and imports
+
+### 🔧 Configuration System Overhaul
+
+#### Added
+- **Comprehensive JSON Templates**: Replace basic template.txt with robust mcpo-config-template.json
+- **Real-World Examples**: mcpo-examples.json with 10 practical configuration examples
+- **Configuration Documentation**: Complete config/README.md with setup guides and troubleshooting
+
+#### Enhanced
+- **7 Server Type Templates**: Local UV, external packages, NPM, HTTP remote, streaming, database, API integration
+- **Security Best Practices**: Enhanced API key management and environment variable guidance
+- **User Experience**: Copy-paste ready configurations with comprehensive documentation
+
 ## [0.2.0] - 2024-12-08
 
 ### Added

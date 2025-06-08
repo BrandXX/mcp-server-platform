@@ -34,7 +34,7 @@ PLATFORM_REPOSITORY = "https://github.com/BrandXX/mcp-server-platform"
 
 # MCP server versions
 SERVER_VERSIONS: Dict[str, VersionInfo] = {
-    "openweather": VersionInfo(0, 2, 0),
+    "openweather": VersionInfo(0, 3, 0),  # Enhanced with activity recommendations, astronomy, air quality
     "time": VersionInfo(1, 0, 0),  # External package
     "memory": VersionInfo(1, 0, 0),  # External package
 }

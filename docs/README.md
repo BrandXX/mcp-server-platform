@@ -23,6 +23,7 @@ Welcome to the MCP Server Development Platform documentation! This comprehensive
 - **[ROADMAP.md](ROADMAP.md)**: Comprehensive project roadmap and future enhancements
 - **[CLI_TOOL_SUMMARY.md](CLI_TOOL_SUMMARY.md)**: Quick reference for the planned CLI tool
 - **[OPEN_WEBUI_INTEGRATION.md](OPEN_WEBUI_INTEGRATION.md)**: Open-WebUI integration enhancement summary
+- **[OPENWEATHER_ENHANCEMENTS.md](OPENWEATHER_ENHANCEMENTS.md)**: OpenWeather v0.3.0 feature highlights
 - **[SECURITY.md](SECURITY.md)**: Security best practices and API key management
 
 ### 📖 Legacy Documentation

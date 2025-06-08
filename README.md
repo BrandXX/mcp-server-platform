@@ -68,11 +68,16 @@ python tests/test_openweather.py
 - **get_current_time**: Get current time for any timezone
 - **Endpoint**: `/time/get_current_time`
 
-### 🌦️ OpenWeather Server
-- **get_current_weather**: Current weather conditions
-- **get_forecast**: Multi-day weather forecasts
-- **check_openweather_status**: Server health and configuration
+### 🌤️ OpenWeather Server (Enhanced v0.3.0)
+- **get_current_weather**: Real-time weather conditions with rich formatting
+- **get_forecast**: Detailed 5-day weather forecasts
+- **🆕 get_weather_recommendations**: Smart activity and clothing suggestions
+- **🆕 get_astronomy_data**: Sunrise, sunset, moon phases, solar calculations
+- **🆕 compare_weather**: Multi-city weather comparison (up to 5 cities)
+- **🆕 get_air_quality**: Air quality index and pollution data
+- **check_openweather_status**: Comprehensive server diagnostics
 - **Endpoints**: `/openweather/*`
+- **Features**: Activity recommendations, astronomy data, air quality monitoring
 
 ### 💾 Memory Server
 - **read_resource**: Read stored memories
