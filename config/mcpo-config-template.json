@@ -1,0 +1,185 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "MCPO Configuration Template",
+  "description": "Comprehensive template for configuring MCP servers in the MCPO platform",
+  "version": "0.2.0",
+  "mcpServers": {
+    "_template_local_uv_server": {
+      "title": "Local UV-based MCP Server Template",
+      "description": "Template for local MCP servers using UV dependency management",
+      "command": "bash",
+      "args": ["/mcp/servers/your-server-name/run_uv.sh"],
+      "preload": true,
+      "env": {
+        "API_KEY": "your_api_key_here",
+        "UNITS": "imperial",
+        "DEBUG": "false",
+        "TIMEOUT": "30"
+      },
+      "metadata": {
+        "category": "local",
+        "server_type": "uv_managed",
+        "version": "0.1.0",
+        "author": "Your Name",
+        "documentation": "https://github.com/your-org/mcp-servers/tree/main/mcp/servers/your-server-name"
+      }
+    },
+    "_template_external_package": {
+      "title": "External Package MCP Server Template",
+      "description": "Template for MCP servers installed via package managers",
+      "command": "uvx",
+      "args": ["mcp-server-package-name", "--option=value"],
+      "preload": true,
+      "env": {
+        "CONFIG_OPTION": "value"
+      },
+      "metadata": {
+        "category": "external",
+        "server_type": "package_managed",
+        "package_manager": "uvx",
+        "package_name": "mcp-server-package-name"
+      }
+    },
+    "_template_npm_package": {
+      "title": "NPM Package MCP Server Template",
+      "description": "Template for Node.js MCP servers installed via NPM",
+      "command": "npx",
+      "args": ["-y", "@scope/mcp-server-name", "--config=value"],
+      "preload": false,
+      "env": {
+        "NODE_ENV": "production"
+      },
+      "metadata": {
+        "category": "external",
+        "server_type": "npm_managed",
+        "package_manager": "npx",
+        "package_name": "@scope/mcp-server-name"
+      }
+    },
+    "_template_http_remote": {
+      "title": "Remote HTTP MCP Server Template",
+      "description": "Template for remote MCP servers accessed via HTTP",
+      "url": "https://api.provider.com/mcp",
+      "server_type": "http",
+      "headers": {
+        "Authorization": "Bearer your_token_here",
+        "Content-Type": "application/json",
+        "User-Agent": "MCPO/0.2.0"
+      },
+      "preload": false,
+      "timeout": 30,
+      "retry_attempts": 3,
+      "metadata": {
+        "category": "remote",
+        "server_type": "http",
+        "provider": "External Service Provider",
+        "api_version": "v1"
+      }
+    },
+    "_template_streamable_http": {
+      "title": "Streamable HTTP MCP Server Template",
+      "description": "Template for remote MCP servers with streaming support",
+      "url": "https://streaming.provider.com/mcp",
+      "server_type": "streamable_http",
+      "headers": {
+        "Authorization": "Bearer your_streaming_token",
+        "Accept": "text/event-stream"
+      },
+      "preload": false,
+      "stream_config": {
+        "buffer_size": 1024,
+        "timeout": 60,
+        "keep_alive": true
+      },
+      "metadata": {
+        "category": "remote",
+        "server_type": "streamable_http",
+        "supports_streaming": true
+      }
+    },
+    "_template_database_server": {
+      "title": "Database MCP Server Template",
+      "description": "Template for database connection MCP servers",
+      "command": "bash",
+      "args": ["/mcp/servers/database-connector/run_uv.sh"],
+      "preload": true,
+      "env": {
+        "DATABASE_URL": "postgresql://user:password@localhost:5432/dbname",
+        "DB_POOL_SIZE": "10",
+        "DB_TIMEOUT": "30",
+        "DB_SSL_MODE": "prefer"
+      },
+      "metadata": {
+        "category": "database",
+        "server_type": "database_connector",
+        "database_type": "postgresql",
+        "supports_transactions": true
+      }
+    },
+    "_template_api_integration": {
+      "title": "API Integration MCP Server Template",
+      "description": "Template for third-party API integration servers",
+      "command": "bash",
+      "args": ["/mcp/servers/api-integration/run_uv.sh"],
+      "preload": true,
+      "env": {
+        "API_BASE_URL": "https://api.service.com/v1",
+        "API_KEY": "your_api_key",
+        "API_SECRET": "your_api_secret",
+        "RATE_LIMIT": "100",
+        "CACHE_TTL": "300"
+      },
+      "metadata": {
+        "category": "api_integration",
+        "server_type": "api_wrapper",
+        "api_provider": "Service Provider Name",
+        "rate_limited": true
+      }
+    }
+  },
+  "configuration_guide": {
+    "server_types": {
+      "local_uv": "Local MCP servers managed with UV dependency management",
+      "external_package": "MCP servers installed via package managers (uvx, pip, etc.)",
+      "npm_package": "Node.js MCP servers installed via NPM/NPX",
+      "http_remote": "Remote MCP servers accessed via HTTP API",
+      "streamable_http": "Remote MCP servers with streaming capabilities",
+      "database": "Database connection and query servers",
+      "api_integration": "Third-party API integration servers"
+    },
+    "required_fields": {
+      "title": "Human-readable name for the server",
+      "description": "Brief description of server functionality"
+    },
+    "server_execution": {
+      "command_based": {
+        "command": "Executable command (bash, uvx, npx, python, etc.)",
+        "args": "Array of command-line arguments",
+        "env": "Environment variables for the server process"
+      },
+      "url_based": {
+        "url": "Full URL to remote MCP server endpoint",
+        "server_type": "Type of HTTP server (http or streamable_http)",
+        "headers": "HTTP headers for authentication and configuration"
+      }
+    },
+    "optional_fields": {
+      "preload": "Whether to start server immediately (true/false)",
+      "timeout": "Request timeout in seconds",
+      "retry_attempts": "Number of retry attempts for failed requests",
+      "metadata": "Additional server information and categorization"
+    },
+    "environment_variables": {
+      "security": "Use environment variables for sensitive data (API keys, passwords)",
+      "configuration": "Use .env file for local development",
+      "production": "Set environment variables in deployment environment"
+    },
+    "best_practices": {
+      "naming": "Use descriptive, lowercase names with hyphens",
+      "descriptions": "Keep descriptions concise but informative",
+      "security": "Never commit API keys or sensitive data",
+      "testing": "Test server configuration before deployment",
+      "documentation": "Document custom servers in their README files"
+    }
+  }
+}

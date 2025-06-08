@@ -1,5 +1,10 @@
 # MCPO Configuration
 
+> **Note**: This is legacy documentation. For comprehensive configuration guides, see:
+> - **[config/README.md](../config/README.md)** - Complete configuration guide
+> - **[config/mcpo-config-template.json](../config/mcpo-config-template.json)** - Configuration templates
+> - **[config/mcpo-examples.json](../config/mcpo-examples.json)** - Real-world examples
+
 ## Main Configuration File
 
 MCPO is configured through `config/mcpo.json`, which defines the available MCP servers.

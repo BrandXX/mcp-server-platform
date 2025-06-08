@@ -1,0 +1,224 @@
+{
+  "title": "MCPO Configuration Examples",
+  "description": "Real-world examples of MCP server configurations",
+  "version": "0.2.0",
+  "examples": {
+    "weather_server": {
+      "title": "OpenWeather Forecast",
+      "description": "Current conditions and 5-day forecast via OpenWeatherMap API",
+      "command": "bash",
+      "args": ["/mcp/servers/openweather/run_uv.sh"],
+      "preload": true,
+      "env": {
+        "UNITS": "imperial"
+      },
+      "metadata": {
+        "category": "weather",
+        "server_type": "api_integration",
+        "requires_api_key": true,
+        "api_provider": "OpenWeatherMap"
+      }
+    },
+    "time_server": {
+      "title": "MCP Current Time",
+      "description": "Current date & time for any city or timezone",
+      "command": "uvx",
+      "args": ["mcp-server-time", "--local-timezone=America/Phoenix"],
+      "preload": true,
+      "metadata": {
+        "category": "utility",
+        "server_type": "external_package",
+        "package_name": "mcp-server-time"
+      }
+    },
+    "memory_server": {
+      "title": "MCP Ephemeral Memory",
+      "description": "Simple key-value store for session-based notes",
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-memory"],
+      "preload": false,
+      "metadata": {
+        "category": "storage",
+        "server_type": "npm_package",
+        "package_name": "@modelcontextprotocol/server-memory"
+      }
+    },
+    "github_integration": {
+      "title": "GitHub API Integration",
+      "description": "Repository management and issue tracking via GitHub API",
+      "command": "bash",
+      "args": ["/mcp/servers/github-api/run_uv.sh"],
+      "preload": true,
+      "env": {
+        "GITHUB_TOKEN": "your_github_token",
+        "DEFAULT_ORG": "your-organization",
+        "RATE_LIMIT": "5000"
+      },
+      "metadata": {
+        "category": "development",
+        "server_type": "api_integration",
+        "api_provider": "GitHub",
+        "requires_authentication": true
+      }
+    },
+    "postgres_database": {
+      "title": "PostgreSQL Database Connector",
+      "description": "SQL query execution and database management",
+      "command": "bash",
+      "args": ["/mcp/servers/postgres-connector/run_uv.sh"],
+      "preload": true,
+      "env": {
+        "DATABASE_URL": "postgresql://user:password@localhost:5432/mydb",
+        "DB_POOL_SIZE": "10",
+        "DB_TIMEOUT": "30",
+        "ENABLE_TRANSACTIONS": "true"
+      },
+      "metadata": {
+        "category": "database",
+        "server_type": "database_connector",
+        "database_type": "postgresql",
+        "supports_transactions": true
+      }
+    },
+    "file_system": {
+      "title": "File System Operations",
+      "description": "File and directory management with security controls",
+      "command": "bash",
+      "args": ["/mcp/servers/filesystem/run_uv.sh"],
+      "preload": true,
+      "env": {
+        "ALLOWED_PATHS": "/home/user/documents,/tmp",
+        "MAX_FILE_SIZE": "10485760",
+        "ENABLE_WRITE": "true",
+        "ENABLE_DELETE": "false"
+      },
+      "metadata": {
+        "category": "system",
+        "server_type": "filesystem",
+        "security_restricted": true
+      }
+    },
+    "slack_integration": {
+      "title": "Slack Workspace Integration",
+      "description": "Send messages and manage Slack workspace",
+      "command": "bash",
+      "args": ["/mcp/servers/slack-api/run_uv.sh"],
+      "preload": true,
+      "env": {
+        "SLACK_BOT_TOKEN": "xoxb-your-bot-token",
+        "SLACK_APP_TOKEN": "xapp-your-app-token",
+        "DEFAULT_CHANNEL": "#general"
+      },
+      "metadata": {
+        "category": "communication",
+        "server_type": "api_integration",
+        "api_provider": "Slack",
+        "requires_oauth": true
+      }
+    },
+    "remote_ai_service": {
+      "title": "Remote AI Service",
+      "description": "External AI service integration via HTTP",
+      "url": "https://ai-service.example.com/mcp",
+      "server_type": "http",
+      "headers": {
+        "Authorization": "Bearer your_ai_service_token",
+        "Content-Type": "application/json",
+        "X-Client-Version": "1.0.0"
+      },
+      "preload": false,
+      "timeout": 60,
+      "retry_attempts": 3,
+      "metadata": {
+        "category": "ai_services",
+        "server_type": "remote_http",
+        "provider": "AI Service Provider"
+      }
+    },
+    "streaming_data_service": {
+      "title": "Real-time Data Stream",
+      "description": "Streaming data service with real-time updates",
+      "url": "https://stream.dataservice.com/mcp",
+      "server_type": "streamable_http",
+      "headers": {
+        "Authorization": "Bearer your_stream_token",
+        "Accept": "text/event-stream"
+      },
+      "preload": false,
+      "stream_config": {
+        "buffer_size": 2048,
+        "timeout": 120,
+        "keep_alive": true,
+        "reconnect_attempts": 5
+      },
+      "metadata": {
+        "category": "data_streaming",
+        "server_type": "streamable_http",
+        "supports_real_time": true
+      }
+    },
+    "development_tools": {
+      "title": "Development Utilities",
+      "description": "Code formatting, linting, and development tools",
+      "command": "bash",
+      "args": ["/mcp/servers/dev-tools/run_uv.sh"],
+      "preload": true,
+      "env": {
+        "SUPPORTED_LANGUAGES": "python,javascript,typescript,rust",
+        "AUTO_FORMAT": "true",
+        "LINT_LEVEL": "strict"
+      },
+      "metadata": {
+        "category": "development",
+        "server_type": "development_tools",
+        "supports_multiple_languages": true
+      }
+    }
+  },
+  "usage_instructions": {
+    "step_1": "Choose the appropriate template from mcpo-config-template.json",
+    "step_2": "Copy the template configuration to your mcpo.json file",
+    "step_3": "Replace placeholder values with your actual configuration",
+    "step_4": "Set up required environment variables in .env file",
+    "step_5": "Test the configuration with: curl http://localhost:8989/your-server-name",
+    "step_6": "Monitor server logs for any configuration issues"
+  },
+  "common_patterns": {
+    "api_key_management": {
+      "description": "Always use environment variables for API keys",
+      "example": {
+        "env": {
+          "API_KEY": "${YOUR_API_KEY}"
+        },
+        "note": "Set YOUR_API_KEY in .env file"
+      }
+    },
+    "local_development": {
+      "description": "Use preload: true for faster development iteration",
+      "example": {
+        "preload": true,
+        "env": {
+          "DEBUG": "true"
+        }
+      }
+    },
+    "production_deployment": {
+      "description": "Configure timeouts and retry logic for production",
+      "example": {
+        "timeout": 30,
+        "retry_attempts": 3,
+        "preload": true
+      }
+    },
+    "security_headers": {
+      "description": "Include proper headers for remote services",
+      "example": {
+        "headers": {
+          "Authorization": "Bearer ${TOKEN}",
+          "User-Agent": "MCPO/0.2.0",
+          "Content-Type": "application/json"
+        }
+      }
+    }
+  }
+}

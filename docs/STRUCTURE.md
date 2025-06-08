@@ -106,12 +106,16 @@ MCPO configuration and templates.
 ```
 config/
 ├── mcpo.json                      # Main MCPO server configuration
-└── template.txt                   # Configuration template examples
+├── mcpo-config-template.json      # Comprehensive configuration templates
+├── mcpo-examples.json             # Real-world configuration examples
+└── README.md                      # Configuration documentation
 ```
 
 ### **Configuration Files**
 - **`mcpo.json`**: Defines available MCP servers for Open-WebUI
-- **`template.txt`**: Example configurations for different server types
+- **`mcpo-config-template.json`**: Comprehensive templates for all server types
+- **`mcpo-examples.json`**: Real-world configuration examples
+- **`README.md`**: Configuration guide and documentation
 
 ## 💾 **Data & Runtime (`data/`)**
 
